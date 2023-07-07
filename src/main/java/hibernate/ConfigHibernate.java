@@ -1,5 +1,7 @@
 package hibernate;
 
+import hibernate.pojo.LevelLog;
+import hibernate.pojo.Log;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -24,11 +26,15 @@ public class ConfigHibernate {
         props.put(Environment.USER, "root");
         props.put(Environment.PASS, "");
         props.put(Environment.SHOW_SQL, "true");
+        props.put(Environment.HBM2DDL_AUTO,"create"); // tự động tạo table nếu chưa tồn tại
+        props.put(Environment.HBM2DDL_AUTO,"update"); // tự động cập nhật table khi có sự thay đổi
         conf.setProperties(props);
 
+        conf.addAnnotatedClass(Log.class);
+        conf.addAnnotatedClass(LevelLog.class);
+
         /* ServiceRegistry là một interface của Hibernate, được sử dụng để quản lý các service. */
-        ServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .applySettings(conf.getProperties()).build();
+        ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
 
         FACTORY = conf.buildSessionFactory(registry);
     }
