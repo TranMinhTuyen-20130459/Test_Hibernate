@@ -8,7 +8,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Level_Logs")
 public class LevelLog implements Serializable {
-
     @Id
     private Long id_level;
     private String name;
@@ -28,4 +27,5 @@ public class LevelLog implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
 }

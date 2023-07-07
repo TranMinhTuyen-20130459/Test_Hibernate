@@ -18,6 +18,10 @@ public class Log implements Serializable {
     private Timestamp create_at;
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name = "id_level")
+    private LevelLog level_log;
+
     public Long getId_log() {
         return id_log;
     }
@@ -80,5 +84,13 @@ public class Log implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public LevelLog getLevel_log() {
+        return level_log;
+    }
+
+    public void setLevel_log(LevelLog level_log) {
+        this.level_log = level_log;
     }
 }
