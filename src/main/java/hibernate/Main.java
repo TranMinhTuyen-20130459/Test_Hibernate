@@ -1,5 +1,6 @@
 package hibernate;
 
+import hibernate.config.ConfigHibernate;
 import hibernate.pojo.Log;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,13 +11,7 @@ public class Main {
         try {
 
             session = ConfigHibernate.getFactory().openSession();
-            Transaction transaction = session.beginTransaction();
-
-            Log log = new Log();
-            log.setContent("Welcome");
-            session.save(log);
-
-            transaction.commit();
+            System.out.println("Kết nối đến database thành công");
 
         } catch (Exception e) {
 
