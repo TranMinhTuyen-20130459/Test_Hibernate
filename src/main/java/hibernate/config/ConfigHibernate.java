@@ -1,9 +1,6 @@
 package hibernate.config;
 
-import hibernate.pojo.LevelLog;
-import hibernate.pojo.Log;
-import hibernate.pojo.StatusOrder;
-import hibernate.pojo.StatusProduct;
+import hibernate.pojo.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -36,6 +33,9 @@ public class ConfigHibernate {
         conf.addAnnotatedClass(LevelLog.class);
         conf.addAnnotatedClass(StatusProduct.class);
         conf.addAnnotatedClass(StatusOrder.class);
+        conf.addAnnotatedClass(Brand.class);
+        conf.addAnnotatedClass(Product.class);
+        conf.addAnnotatedClass(PriceRange.class);
 
         /* ServiceRegistry là một interface của Hibernate, được sử dụng để quản lý các service. */
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();

@@ -2,10 +2,12 @@ package hibernate.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name="Price_Ranges")
 public class PriceRange implements Serializable {
 
     @Id
