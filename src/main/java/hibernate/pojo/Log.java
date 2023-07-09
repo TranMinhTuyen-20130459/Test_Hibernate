@@ -18,7 +18,7 @@ public class Log implements Serializable {
     private Timestamp create_at;
     private String status;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "id_level")
     private LevelLog level_log;
 

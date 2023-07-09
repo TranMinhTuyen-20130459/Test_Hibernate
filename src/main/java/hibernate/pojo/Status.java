@@ -2,9 +2,10 @@ package hibernate.pojo;
 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class Status {
+public abstract class Status implements Serializable {
     @Id
     private int id_status;
     private String name;
