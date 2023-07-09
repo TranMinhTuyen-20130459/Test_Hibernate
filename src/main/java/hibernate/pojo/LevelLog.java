@@ -2,8 +2,10 @@ package hibernate.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Level_Logs")
@@ -11,6 +13,9 @@ public class LevelLog implements Serializable {
     @Id
     private Long id_level;
     private String name;
+
+    @OneToMany(mappedBy = "level_log")
+    private Set<Log> logs;
 
     public Long getId_level() {
         return id_level;
@@ -28,4 +33,11 @@ public class LevelLog implements Serializable {
         this.name = name;
     }
 
+    public Set<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(Set<Log> logs) {
+        this.logs = logs;
+    }
 }
