@@ -2,14 +2,14 @@ package hibernate.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "Price_Products")
-public class PriceProduct {
+public class PriceProduct implements Serializable {
 
     @Id
     private Long id_price_product;

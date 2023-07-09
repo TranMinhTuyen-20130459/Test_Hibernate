@@ -1,9 +1,6 @@
 package hibernate.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -14,7 +11,7 @@ public class LevelLog implements Serializable {
     private Long id_level;
     private String name;
 
-    @OneToMany(mappedBy = "level_log")
+    @OneToMany(mappedBy = "level_log", fetch = FetchType.LAZY)
     private Set<Log> logs;
 
     public Long getId_level() {
