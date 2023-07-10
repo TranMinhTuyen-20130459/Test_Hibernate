@@ -1,9 +1,7 @@
 package hibernate;
 
 import hibernate.config.ConfigHibernate;
-import hibernate.pojo.Log;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 public class Main {
     public static void main(String[] args) {

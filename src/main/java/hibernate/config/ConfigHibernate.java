@@ -25,17 +25,23 @@ public class ConfigHibernate {
         props.put(Environment.USER, "root");
         props.put(Environment.PASS, "");
         props.put(Environment.SHOW_SQL, "true");
-        props.put(Environment.HBM2DDL_AUTO,"create"); // tự động tạo table nếu chưa tồn tại
-        props.put(Environment.HBM2DDL_AUTO,"update"); // tự động cập nhật table khi có sự thay đổi
+        props.put(Environment.HBM2DDL_AUTO, "create"); // tự động tạo table nếu chưa tồn tại
+        props.put(Environment.HBM2DDL_AUTO, "update"); // tự động cập nhật table khi có sự thay đổi
         conf.setProperties(props);
 
-        conf.addAnnotatedClass(Log.class);
         conf.addAnnotatedClass(LevelLog.class);
+        conf.addAnnotatedClass(Log.class);
         conf.addAnnotatedClass(StatusProduct.class);
         conf.addAnnotatedClass(StatusOrder.class);
-        conf.addAnnotatedClass(Brand.class);
-        conf.addAnnotatedClass(Product.class);
         conf.addAnnotatedClass(PriceRange.class);
+
+        conf.addAnnotatedClass(Product.class);
+        conf.addAnnotatedClass(Size.class);
+        conf.addAnnotatedClass(Brand.class);
+        conf.addAnnotatedClass(HistoryPriceProduct.class);
+
+        conf.addAnnotatedClass(ImageProduct.class);
+        conf.addAnnotatedClass(SizeProduct.class);
 
         /* ServiceRegistry là một interface của Hibernate, được sử dụng để quản lý các service. */
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
