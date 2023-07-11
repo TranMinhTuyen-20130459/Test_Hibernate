@@ -14,4 +14,11 @@ public class StatusProduct extends Status {
     @OneToMany(mappedBy = "status_product", fetch = FetchType.LAZY)
     private Set<Product> products;
 
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
 }

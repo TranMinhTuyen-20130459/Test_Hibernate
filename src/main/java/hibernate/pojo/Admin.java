@@ -14,4 +14,19 @@ public class Admin extends User {
     @JoinColumn(name = "id_status_admin")
     private StatusAdmin status_admin;
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public StatusAdmin getStatus_admin() {
+        return status_admin;
+    }
+
+    public void setStatus_admin(StatusAdmin status_admin) {
+        this.status_admin = status_admin;
+    }
 }

@@ -15,6 +15,27 @@ public class ImageProduct implements Serializable {
     @JoinColumn(name = "id_product")
     private Product product;
 
+    public Long getId_image() {
+        return id_image;
+    }
 
+    public void setId_image(Long id_image) {
+        this.id_image = id_image;
+    }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

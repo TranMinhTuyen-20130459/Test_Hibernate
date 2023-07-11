@@ -38,4 +38,5 @@ public class PriceRange implements Serializable {
     public void setPrice_end(BigDecimal price_end) {
         this.price_end = price_end;
     }
+
 }
