@@ -1,13 +1,14 @@
 package hibernate.pojo;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.security.Timestamp;
 import java.util.Set;
 
 @Entity
 @Table(name = "Orders")
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

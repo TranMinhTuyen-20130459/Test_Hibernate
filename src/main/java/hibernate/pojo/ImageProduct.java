@@ -15,4 +15,6 @@ public class ImageProduct implements Serializable {
     @JoinColumn(name = "id_product")
     private Product product;
 
+
+
 }
