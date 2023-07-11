@@ -43,6 +43,9 @@ public class ConfigHibernate {
         conf.addAnnotatedClass(ImageProduct.class);
         conf.addAnnotatedClass(SizeProduct.class);
 
+        conf.addAnnotatedClass(Order.class);
+        conf.addAnnotatedClass(OrderDetail.class);
+
         /* ServiceRegistry là một interface của Hibernate, được sử dụng để quản lý các service. */
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
 
