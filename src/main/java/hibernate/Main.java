@@ -1,5 +1,7 @@
 package hibernate;
 
+import hibernate.data.DataBrand;
+import hibernate.data.DataSize;
 import hibernate.data.DataStatusOrder;
 import hibernate.data.DataStatusProduct;
 
@@ -9,7 +11,9 @@ public class Main {
         try {
 
 //            DataStatusProduct.addDataToTable_StatusProducts();
-            DataStatusOrder.addDataToTable_StatusOrders();
+//            DataStatusOrder.addDataToTable_StatusOrders();
+//            DataBrand.addDataToTable_Brands();
+            DataSize.addDataToTable_Sizes();
 
         } catch (Exception e) {
 
