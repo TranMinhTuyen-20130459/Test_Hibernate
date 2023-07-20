@@ -28,6 +28,10 @@ public abstract class Product implements Serializable {
     @JoinColumn(name = "id_brand")
     private Brand brand;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_type")
+    private TypeProduct type_product;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private Set<SizeProduct> size_products;
 

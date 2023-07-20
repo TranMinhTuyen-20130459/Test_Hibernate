@@ -50,6 +50,8 @@ public class ConfigHibernate {
         conf.addAnnotatedClass(Role.class);
         conf.addAnnotatedClass(Admin.class);
 
+        conf.addAnnotatedClass(TypeProduct.class);
+
         /* ServiceRegistry là một interface của Hibernate, được sử dụng để quản lý các service. */
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
 
