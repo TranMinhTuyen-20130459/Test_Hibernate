@@ -1,15 +1,15 @@
 package hibernate;
 
-import hibernate.config.ConfigHibernate;
+import hibernate.data.DataStatusOrder;
 import hibernate.data.DataStatusProduct;
-import org.hibernate.Session;
 
 public class Main {
     public static void main(String[] args) {
 
         try {
 
-            DataStatusProduct.addDataToTableStatusProducts();
+//            DataStatusProduct.addDataToTable_StatusProducts();
+            DataStatusOrder.addDataToTable_StatusOrders();
 
         } catch (Exception e) {
 

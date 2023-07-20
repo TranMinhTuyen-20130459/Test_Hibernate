@@ -7,7 +7,7 @@ import org.hibernate.Session;
 public class DataStatusProduct {
     public static String[] arr_status_products = {"BÌNH THƯỜNG", "MỚI", "HOT", "KHUYẾN MÃI", "TẠM HẾT HÀNG", "HẾT HÀNG", "CẤM BÁN"};
 
-    public static void addDataToTableStatusProducts() {
+    public static void addDataToTable_StatusProducts() {
 
         Session session = ConfigHibernate.getFactory().openSession();
         try {
