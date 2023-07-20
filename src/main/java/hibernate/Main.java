@@ -1,9 +1,6 @@
 package hibernate;
 
-import hibernate.data.DataBrand;
-import hibernate.data.DataSize;
-import hibernate.data.DataStatusOrder;
-import hibernate.data.DataStatusProduct;
+import hibernate.data.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +10,9 @@ public class Main {
 //            DataStatusProduct.addDataToTable_StatusProducts();
 //            DataStatusOrder.addDataToTable_StatusOrders();
 //            DataBrand.addDataToTable_Brands();
-            DataSize.addDataToTable_Sizes();
+//            DataSize.addDataToTable_Sizes();
+//            DataPriceRange.addDataToTable_PriceRanges();
+            DataTypeProduct.addDataToTable_TypeProducts();
 
         } catch (Exception e) {
 
