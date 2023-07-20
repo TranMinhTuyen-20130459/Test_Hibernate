@@ -1,11 +1,39 @@
 package hibernate.data;
 
-import java.util.Arrays;
-import java.util.List;
+import hibernate.config.ConfigHibernate;
+import hibernate.pojo.StatusProduct;
+import org.hibernate.Session;
 
 public class DataStatusProduct {
     public static String[] arr_status_products = {"BÌNH THƯỜNG", "MỚI", "HOT", "KHUYẾN MÃI", "TẠM HẾT HÀNG", "HẾT HÀNG", "CẤM BÁN"};
-    public static List<String> list_status_products = Arrays.asList(arr_status_products);
+
+    public static void addDataToTableStatusProducts() {
+
+        Session session = ConfigHibernate.getFactory().openSession();
+        try {
+
+            session.beginTransaction();
+            for (int i = 0; i < arr_status_products.length; i++) {
+
+                StatusProduct sttProduct = new StatusProduct();
+                sttProduct.setId_status(i);
+                sttProduct.setName(arr_status_products[i]);
+
+                session.save(sttProduct);
+
+            }
+            session.getTransaction().commit();
+
+        } catch (Exception e) {
+
+            session.getTransaction().rollback();
+            System.out.println(e.getMessage());
+
+        } finally {
+            session.close();
+        }
+
+    }
 
 
 }

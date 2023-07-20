@@ -21,4 +21,6 @@ public class StatusProduct extends Status {
     public void setProducts(Set<Product> products) {
         this.products = products;
     }
+
+
 }
