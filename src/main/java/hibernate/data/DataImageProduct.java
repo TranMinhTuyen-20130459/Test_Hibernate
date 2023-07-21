@@ -1,5 +1,15 @@
 package hibernate.data;
 
+import hibernate.config.ConfigHibernate;
+import hibernate.pojo.ImageProduct;
+import hibernate.pojo.Product;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class DataImageProduct {
 
     public static String[] arr_path_img = {
@@ -34,4 +44,64 @@ public class DataImageProduct {
             , "https://kingshoes.vn/data/upload/media/dn1635-100-giay-nike-air-jordan-1-low-inside-out-chinh-hang-gia-tot-den-king-shoes-15.jpeg"
             , "https://kingshoes.vn/data/upload/media/bq4422-001-giay-nike-air-jordan-1-retro-high-85-black-white-chinh-hang-gia-tot-den-king-shoes-12.jpeg"
     };
+
+    public static List<Long> getListIdProduct() {
+        List<Long> listId = new ArrayList<>();
+        String string_query = "SELECT id_product FROM Product";
+        Session session = ConfigHibernate.getFactory().openSession();
+        try {
+
+            Query query = session.createQuery(string_query);
+            listId = query.getResultList();
+
+        } catch (Exception e) {
+            listId = new ArrayList<>();
+            System.out.println(e.getMessage());
+        } finally {
+            if (session != null) session.close();
+        }
+        return listId;
+    }
+
+    public static void addDataToTable_ImageProducts() {
+        List<Long> listIds = DataImageProduct.getListIdProduct();
+        Session session = ConfigHibernate.getFactory().openSession();
+        try {
+
+            session.beginTransaction();
+
+            Random random = new Random();
+            // một product sẽ có 3 image_product
+            for (int i = 0; i < 3; i++) {
+
+                listIds.forEach(itemId -> {
+
+                    Product product = new Product();
+                    product.setId_product(itemId);
+
+                    ImageProduct imgProduct = new ImageProduct();
+                    imgProduct.setProduct(product);
+
+                    int randomIndex = random.nextInt(arr_path_img.length);
+                    String path_img = arr_path_img[randomIndex]; // chọn path_image ngẫu nhiên từ arr_path_img
+                    imgProduct.setPath(path_img);
+
+                    session.save(imgProduct);
+                });
+
+            }
+            session.getTransaction().commit();
+
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        } finally {
+            if (session != null) session.close();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(DataImageProduct.getListIdProduct());
+    }
+
 }

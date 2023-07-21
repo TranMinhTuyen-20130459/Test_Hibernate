@@ -18,9 +18,11 @@ public class Main {
 //            DataPriceRange.addDataToTable_PriceRanges();
 //            DataTypeProduct.addDataToTable_TypeProducts();
 
-            for (int i = 0; i < 100; i++) {
-                DataProduct.addDataToTable_Products();
-            }
+//            for (int i = 0; i < 100; i++) {
+//                DataProduct.addDataToTable_Products();
+//            }
+
+            DataImageProduct.addDataToTable_ImageProducts();
 
         } catch (Exception e) {
 

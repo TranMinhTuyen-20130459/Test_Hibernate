@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class ImageProduct implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_image;
     private String path;
 
