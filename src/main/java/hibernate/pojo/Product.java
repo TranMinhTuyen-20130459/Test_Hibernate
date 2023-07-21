@@ -7,9 +7,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Products")
-public abstract class Product implements Serializable {
+public class Product implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_product;
     private String name_product;
     private int star_review;
@@ -97,5 +98,13 @@ public abstract class Product implements Serializable {
 
     public void setSize_products(Set<SizeProduct> size_products) {
         this.size_products = size_products;
+    }
+
+    public TypeProduct getType_product() {
+        return type_product;
+    }
+
+    public void setType_product(TypeProduct type_product) {
+        this.type_product = type_product;
     }
 }
