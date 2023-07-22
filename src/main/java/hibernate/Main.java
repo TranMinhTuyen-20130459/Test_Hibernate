@@ -11,6 +11,7 @@ public class Main {
         try {
 //            session = ConfigHibernate.getFactory().openSession();
 //            System.out.println("Kết nối đến database thành công");
+
 //            DataStatusProduct.addDataToTable_StatusProducts();
 //            DataStatusOrder.addDataToTable_StatusOrders();
 //            DataBrand.addDataToTable_Brands();
@@ -23,7 +24,8 @@ public class Main {
 //            }
 
 //            DataImageProduct.addDataToTable_ImageProducts();
-            DataSizeProduct.addDataToTable_SizeProducts();
+//            DataSizeProduct.addDataToTable_SizeProducts();
+
         } catch (Exception e) {
 
             System.out.println("Đã có lỗi xảy ra");

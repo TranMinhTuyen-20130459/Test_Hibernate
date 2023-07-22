@@ -10,8 +10,11 @@ import java.sql.Timestamp;
 public class HistoryPriceProduct implements Serializable {
 
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id_price_product;
+    @Column(columnDefinition = "DECIMAL(10,2) CHECK (listed_price >= 0)")
     private BigDecimal listed_price;
+    @Column(columnDefinition = "DECIMAL(10,2) CHECK (promotional_price >= 0)")
     private BigDecimal promotional_price;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -20,6 +23,7 @@ public class HistoryPriceProduct implements Serializable {
 
     private Timestamp time_start;
     private Timestamp time_end;
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false)
     private Timestamp created_at;
 
     public Long getId_price_product() {
