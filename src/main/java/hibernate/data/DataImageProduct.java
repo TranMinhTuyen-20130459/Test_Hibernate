@@ -4,9 +4,7 @@ import hibernate.config.ConfigHibernate;
 import hibernate.pojo.ImageProduct;
 import hibernate.pojo.Product;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -45,26 +43,8 @@ public class DataImageProduct {
             , "https://kingshoes.vn/data/upload/media/bq4422-001-giay-nike-air-jordan-1-retro-high-85-black-white-chinh-hang-gia-tot-den-king-shoes-12.jpeg"
     };
 
-    public static List<Long> getListIdProduct() {
-        List<Long> listId = new ArrayList<>();
-        String string_query = "SELECT id_product FROM Product";
-        Session session = ConfigHibernate.getFactory().openSession();
-        try {
-
-            Query query = session.createQuery(string_query);
-            listId = query.getResultList();
-
-        } catch (Exception e) {
-            listId = new ArrayList<>();
-            System.out.println(e.getMessage());
-        } finally {
-            if (session != null) session.close();
-        }
-        return listId;
-    }
-
     public static void addDataToTable_ImageProducts() {
-        List<Long> listIds = DataImageProduct.getListIdProduct();
+        List<Long> listIds = DataUtil.getListIdProduct();
         Session session = ConfigHibernate.getFactory().openSession();
         try {
 
@@ -98,10 +78,6 @@ public class DataImageProduct {
         } finally {
             if (session != null) session.close();
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(DataImageProduct.getListIdProduct());
     }
 
 }
