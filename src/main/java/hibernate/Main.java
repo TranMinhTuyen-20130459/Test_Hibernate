@@ -22,8 +22,8 @@ public class Main {
 //                DataProduct.addDataToTable_Products();
 //            }
 
-            DataImageProduct.addDataToTable_ImageProducts();
-
+//            DataImageProduct.addDataToTable_ImageProducts();
+            DataSizeProduct.addDataToTable_SizeProducts();
         } catch (Exception e) {
 
             System.out.println("Đã có lỗi xảy ra");

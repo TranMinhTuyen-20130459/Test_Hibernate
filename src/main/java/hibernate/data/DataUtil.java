@@ -25,4 +25,27 @@ public class DataUtil {
         }
         return listId;
     }
+
+    public static List<String> getListSize() {
+        List<String> listSize = new ArrayList<>();
+        String query_string = "SELECT name_size FROM Size";
+        Session session = ConfigHibernate.getFactory().openSession();
+        try {
+            Query query = session.createQuery(query_string);
+            listSize = query.getResultList();
+        } catch (Exception e) {
+            listSize = new ArrayList<>();
+            System.out.println(e.getMessage());
+        } finally {
+            if (session != null) session.close();
+        }
+        return listSize;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(DataUtil.getListIdProduct());
+        System.out.println(DataUtil.getListSize());
+    }
+
 }
