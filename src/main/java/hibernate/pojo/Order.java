@@ -41,9 +41,13 @@ public class Order implements Serializable {
     private String to_district_id;
     private String to_province_id;
     private String note;
+    @Column(columnDefinition = "DECIMAL(19,2) CHECK (ship_price >= 0)")
     private BigDecimal ship_price;
+    @Column(columnDefinition = "DECIMAL(19,2) CHECK (order_value >= 0)")
     private BigDecimal order_value;
+    @Column(columnDefinition = "DECIMAL(19,2) CHECK (total_price >= 0)")
     private BigDecimal total_price;
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false)
     private Timestamp time_order;
     private Timestamp time_updated;
     private String email_customer;
