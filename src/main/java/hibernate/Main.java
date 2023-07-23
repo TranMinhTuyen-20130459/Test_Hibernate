@@ -25,6 +25,7 @@ public class Main {
 
 //            DataImageProduct.addDataToTable_ImageProducts();
 //            DataSizeProduct.addDataToTable_SizeProducts();
+            DataHistoryPriceProduct.addDataToTable_HistoryPriceProducts();
 
         } catch (Exception e) {
 
