@@ -28,6 +28,7 @@ public class Main {
 //            DataSizeProduct.addDataToTable_SizeProducts();
 //            DataHistoryPriceProduct.addDataToTable_HistoryPriceProducts();
 //            DataOrder.addDataToTable_Orders();
+            DataOrderDetail.addDataToTable_OrderDetails();
 
             long endTime = System.currentTimeMillis();
             executeTime = endTime - startTime;

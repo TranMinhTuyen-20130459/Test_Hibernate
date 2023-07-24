@@ -42,10 +42,27 @@ public class DataUtil {
         return listSize;
     }
 
+    public static List<Long> getListIdOrder() {
+        List<Long> listId = new ArrayList<>();
+        String query_string = "SELECT id_order FROM Order";
+        Session session = ConfigHibernate.getFactory().openSession();
+        try {
+            Query query = session.createQuery(query_string);
+            listId = query.getResultList();
+        } catch (Exception e) {
+            listId = new ArrayList<>();
+            System.out.println(e.getMessage());
+        } finally {
+            if (session != null) session.close();
+        }
+        return listId;
+    }
+
     public static void main(String[] args) {
 
-        System.out.println(DataUtil.getListIdProduct());
-        System.out.println(DataUtil.getListSize());
+//        System.out.println(DataUtil.getListIdProduct());
+//        System.out.println(DataUtil.getListSize());
+        System.out.println(DataUtil.getListIdOrder().size());
     }
 
 }
